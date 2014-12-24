@@ -6,7 +6,7 @@
     type="vicon_odom"
     name="$(arg model)"
     output="screen">
-    <param name="vicon_fps" value="100"/>
+    <param name="vicon_fps" value="100.0"/>
     <param name="max_accel" value="5.0"/>
 
     <remap from="~vicon" to="/vicon/$(arg model)"/>
