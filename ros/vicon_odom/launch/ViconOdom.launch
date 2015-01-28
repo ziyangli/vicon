@@ -1,16 +1,17 @@
 <launch>
 
-  <arg name="model" value="ziyang"/>
+  <arg name="model"/>
+  <arg name="odom_pub" default="/vicon/$(arg model)/odom" />
 
   <node pkg="vicon_odom"
     type="vicon_odom"
-    name="$(arg model)"
+    name="vicon_$(arg model)"
     output="screen">
     <param name="vicon_fps" value="200.0"/>
     <param name="max_accel" value="2.0"/>
 
     <remap from="~vicon" to="/vicon/$(arg model)"/>
-    <remap from="~odom" to="/$(arg model)/odom"/>
+    <remap from="~odom" to="$(arg odom_pub)"/>
   </node>
 
 </launch>

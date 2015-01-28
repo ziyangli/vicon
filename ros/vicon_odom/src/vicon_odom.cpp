@@ -102,9 +102,10 @@ int main(int argc, char **argv)
                 proc_noise_diag.asDiagonal(),
                 meas_noise_diag.asDiagonal());
 
-  ros::Subscriber vicon_sub = n.subscribe("vicon", 10, &vicon_callback,
-                                          ros::TransportHints().tcpNoDelay());
+  // ros::Subscriber vicon_sub = n.subscribe("vicon", 1, &vicon_callback);
+  // odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
 
+  ros::Subscriber vicon_sub = n.subscribe("vicon", 10, &vicon_callback, ros::TransportHints().tcpNoDelay());
   odom_pub = n.advertise<nav_msgs::Odometry>("odom", 10);
 
   ros::spin();
